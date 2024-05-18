@@ -27,7 +27,7 @@ const PdfGeneratorForm: React.FC = () => {
     <form onSubmit={handleSubmit(onSubmit)} className={styles.formContainer}>
       <div className={styles.formGroup}>
         <label htmlFor="title" className={styles.label}>
-          Заголовок
+          Заголовок PDF-файла
         </label>
         <input
           id="title"
@@ -41,7 +41,7 @@ const PdfGeneratorForm: React.FC = () => {
 
       <div className={styles.formGroup}>
         <label htmlFor="image" className={styles.label}>
-          Загрузить изображение
+          Загрузите изображение
         </label>
         <input
           id="image"
