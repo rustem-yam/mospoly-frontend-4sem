@@ -29,14 +29,8 @@ const PdfGeneratorForm: React.FC = () => {
         <label htmlFor="title" className={styles.label}>
           Заголовок PDF-файла
         </label>
-        <input
-          id="title"
-          className={styles.input}
-          {...register("title", { required: "Это поле обязательно" })}
-        />
-        {errors.title && (
-          <p className={styles.errorMessage}>{errors.title.message}</p>
-        )}
+        <input id="title" className={styles.input} {...register("title", { required: "Это поле обязательно" })} />
+        {errors.title && <p className={styles.errorMessage}>{errors.title.message}</p>}
       </div>
 
       <div className={styles.formGroup}>
@@ -49,9 +43,7 @@ const PdfGeneratorForm: React.FC = () => {
           className={styles.input}
           {...register("image", { required: "Это поле обязательно" })}
         />
-        {errors.image && (
-          <p className={styles.errorMessage}>{errors.image.message}</p>
-        )}
+        {errors.image && <p className={styles.errorMessage}>{errors.image.message}</p>}
       </div>
 
       <button type="submit" className={styles.submitButton}>
@@ -59,17 +51,10 @@ const PdfGeneratorForm: React.FC = () => {
       </button>
       {!!task?.title && (
         <PDFDownloadLink
-          document={
-            <PdfGeneratorDocument
-              title={task.title}
-              image={URL.createObjectURL(task.image[0])}
-            />
-          }
+          document={<PdfGeneratorDocument title={task.title} image={URL.createObjectURL(task.image[0])} />}
           fileName="file.pdf"
         >
-          {({ blob, url, loading, error }) =>
-            loading ? "Загрузка..." : "Скачать"
-          }
+          {({ blob, url, loading, error }) => (loading ? "Загрузка..." : "Скачать")}
         </PDFDownloadLink>
       )}
     </form>
