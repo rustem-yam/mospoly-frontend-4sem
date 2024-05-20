@@ -29,7 +29,12 @@ const PdfGeneratorForm: React.FC = () => {
         <label htmlFor="title" className={styles.label}>
           Заголовок PDF-файла
         </label>
-        <input id="title" className={styles.input} {...register("title", { required: "Это поле обязательно" })} />
+        <input
+          id="title"
+          data-testId="input-update"
+          className={styles.input}
+          {...register("title", { required: "Это поле обязательно" })}
+        />
         {errors.title && <p className={styles.errorMessage}>{errors.title.message}</p>}
       </div>
 
