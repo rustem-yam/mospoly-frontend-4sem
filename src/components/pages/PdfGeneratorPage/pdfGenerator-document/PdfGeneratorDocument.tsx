@@ -1,13 +1,5 @@
 import { FC } from "react";
-import {
-  Document,
-  Page,
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  Font,
-} from "@react-pdf/renderer";
+import { Document, Page, View, Text, Image, StyleSheet, Font } from "@react-pdf/renderer";
 
 Font.register({
   family: "Roboto",
@@ -35,10 +27,7 @@ interface IPdfGeneratorDocumentProps {
   image: string;
 }
 
-const PdfGeneratorDocument: FC<IPdfGeneratorDocumentProps> = ({
-  title,
-  image,
-}) => {
+const PdfGeneratorDocument: FC<IPdfGeneratorDocumentProps> = ({ title, image }) => {
   return (
     <Document>
       <Page size="A4" style={styles.page} wrap>

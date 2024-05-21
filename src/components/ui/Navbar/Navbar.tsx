@@ -1,10 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import {
-  DYNAMIC_PAGINATION_ROUTE,
-  PDF_GENERATOR_ROUTE,
-} from "../../routes/configs";
+import { DYNAMIC_PAGINATION_ROUTE, PDF_GENERATOR_ROUTE } from "../../routes/configs";
 
 const NavBar: React.FC = () => {
   return (

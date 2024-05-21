@@ -18,7 +18,7 @@ const BlockObserver = styled.div`
 `;
 
 const DynamicPaginationPage: FC = () => {
-  const [universities, setUniversities] = useState<Array<IUniversity>>([]);
+  const [universities, setUniversities] = useState<IUniversity[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
@@ -41,7 +41,7 @@ const DynamicPaginationPage: FC = () => {
       setLoading(true);
       const offset = (currentPage - 1) * LIMIT_UNIVERSITIES;
       const { data } = await axios.get(
-        `http://universities.hipolabs.com/search?offset=${offset}&limit=${LIMIT_UNIVERSITIES}`
+        `http://universities.hipolabs.com/search?offset=${offset}&limit=${LIMIT_UNIVERSITIES}`,
       );
       setUniversities((prev) => [...prev, ...data]);
     } catch (error) {
@@ -55,10 +55,7 @@ const DynamicPaginationPage: FC = () => {
     <ListStyled>
       <h1>List Universities</h1>
       {universities.map((university) => (
-        <CardUniversity
-          data={university}
-          key={university.name}
-        ></CardUniversity>
+        <CardUniversity data={university} key={university.name} />
       ))}
       {loading && <div>Loading...</div>}
       {!loading && <BlockObserver ref={ref}></BlockObserver>}
