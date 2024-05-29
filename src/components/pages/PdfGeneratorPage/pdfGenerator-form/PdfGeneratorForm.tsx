@@ -31,7 +31,7 @@ const PdfGeneratorForm: React.FC = () => {
         </label>
         <input
           id="title"
-          data-testId="input-update"
+          data-testid="input-update"
           className={styles.input}
           {...register("title", { required: "Это поле обязательно" })}
         />
@@ -59,7 +59,7 @@ const PdfGeneratorForm: React.FC = () => {
           document={<PdfGeneratorDocument title={task.title} image={URL.createObjectURL(task.image[0])} />}
           fileName="file.pdf"
         >
-          {({ blob, url, loading, error }) => (loading ? "Загрузка..." : "Скачать")}
+          {({ loading }) => (loading ? "Загрузка..." : "Скачать")}
         </PDFDownloadLink>
       )}
     </form>
