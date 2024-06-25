@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import { DYNAMIC_PAGINATION_ROUTE, PDF_GENERATOR_ROUTE } from "../../routes/configs";
+import { DYNAMIC_PAGINATION_ROUTE, PDF_GENERATOR_ROUTE, WEATHER_ROUTE } from "../../routes/configs";
 
 const NavBar: React.FC = () => {
   return (
@@ -12,6 +12,9 @@ const NavBar: React.FC = () => {
         </li>
         <li className="navbar__item">
           <Link to={DYNAMIC_PAGINATION_ROUTE}>2. Динамическая пагинация</Link>
+        </li>
+        <li className="navbar__item">
+          <Link to={WEATHER_ROUTE}>3. Погода</Link>
         </li>
       </ul>
     </div>
