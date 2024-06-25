@@ -11,7 +11,7 @@ describe("PdfGeneratorForm", () => {
     expect(textInputFile).toBeInTheDocument();
   });
   it("обновляет значение input заголовка", () => {
-    const inputElement = screen.getByTestId("input-update") as HTMLInputElement;
+    const inputElement = screen.getByTestId<HTMLInputElement>("input-update");
     fireEvent.change(inputElement, { target: { value: "проверка" } });
     expect(inputElement.value).toBe("проверка");
   });
