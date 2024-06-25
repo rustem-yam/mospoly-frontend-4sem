@@ -9,7 +9,7 @@ const MainRouter = () => {
     { path: PDF_GENERATOR_ROUTE, element: <PdfGeneratorPage /> },
     { path: DYNAMIC_PAGINATION_ROUTE, element: <DynamicPaginationPage /> },
     { path: WEATHER_ROUTE, element: <WeatherPage /> },
-    { path: "*", element: <Navigate to={"/"} replace /> },
+    { path: "*", element: <Navigate to={"/mospoly-frontend-sem4"} replace /> },
   ];
 
   return useRoutes(basedPaths);
