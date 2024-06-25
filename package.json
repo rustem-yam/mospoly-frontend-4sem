@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://rustem-yam.github.io/mospoly-frontend-4sem/",
   "scripts": {
     "dev": "vite",
+    "gh-pages:404": "cp build/index.html build/404.html",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview --host",
