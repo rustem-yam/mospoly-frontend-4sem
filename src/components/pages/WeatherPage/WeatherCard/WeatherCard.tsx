@@ -1,10 +1,10 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 import { IWeatherData } from "../types";
 import styles from "./WeatherCard.module.scss";
 
-const WeatherCard: FC<{ weatherData: IWeatherData }> = ({ weatherData }) => {
-  const refresh = () => {
-    window.location.reload();
+const WeatherCard: FC<{ weatherData: IWeatherData; callback: Function }> = ({ weatherData, callback }) => {
+  const refresh: MouseEventHandler = (e) => {
+    callback();
   };
 
   const currentDate = new Date().toLocaleDateString("ru-RU", {
