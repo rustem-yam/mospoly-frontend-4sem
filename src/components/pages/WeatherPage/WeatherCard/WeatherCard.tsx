@@ -3,7 +3,7 @@ import { IWeatherData } from "../types";
 import styles from "./WeatherCard.module.scss";
 
 const WeatherCard: FC<{ weatherData: IWeatherData; callback: Function }> = ({ weatherData, callback }) => {
-  const refresh: MouseEventHandler = (e) => {
+  const refresh: MouseEventHandler = () => {
     callback();
   };
 
