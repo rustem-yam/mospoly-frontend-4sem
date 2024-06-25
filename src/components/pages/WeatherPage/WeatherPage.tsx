@@ -8,18 +8,23 @@ const WeatherPage: FC = () => {
   const [long, setLong] = useState<number>(WEATHER_DEFAULT_LONG);
   const [weatherData, setWeatherData] = useState<IWeatherData | undefined>();
 
-  const fetchData = async () => {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      setLat(position.coords.latitude);
-      setLong(position.coords.longitude);
-    });
-
-    await fetch(`${WEATHER_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&appid=${WEATHER_API_KEY}`)
-      .then((res) => res.json())
-      .then((result) => {
-        setWeatherData(result);
-        console.log(result);
+  const fetchData = async (): Promise<void> => {
+    try {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setLat(position.coords.latitude);
+        setLong(position.coords.longitude);
       });
+
+      const response = await fetch(
+        `${WEATHER_API_URL}/weather/?lat=${lat}&lon=${long}&units=metric&appid=${WEATHER_API_KEY}`,
+      );
+      const result = await response.json();
+
+      setWeatherData(result);
+      console.log(result);
+    } catch (error) {
+      console.error("Ошибка при получении данных погоды:", error);
+    }
   };
   useEffect(() => {
     fetchData();

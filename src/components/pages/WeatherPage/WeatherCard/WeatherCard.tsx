@@ -2,7 +2,7 @@ import { FC, MouseEventHandler } from "react";
 import { IWeatherData } from "../types";
 import styles from "./WeatherCard.module.scss";
 
-const WeatherCard: FC<{ weatherData: IWeatherData; callback: Function }> = ({ weatherData, callback }) => {
+const WeatherCard: FC<{ weatherData: IWeatherData; callback: () => Promise<void> }> = ({ weatherData, callback }) => {
   const refresh: MouseEventHandler = () => {
     callback();
   };
