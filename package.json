@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://achukka.github.io/mospoly-frontend-sem4",
+  "homepage": "https://achukka.github.io/mospoly-frontend-4sem",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
